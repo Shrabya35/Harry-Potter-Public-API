@@ -4,6 +4,7 @@ import { errorHandler } from "./middleware/errorHandler";
 import userRouter from "./routes/userAuth.route";
 import adminRouter from "./routes/admin.route";
 import spellRouter from "./routes/spell.route";
+import HouseRouter from "./routes/House.route";
 import {
   apiKeyAuthMiddleware,
   rateLimitMiddleware,
@@ -20,6 +21,12 @@ app.use(
   apiKeyAuthMiddleware,
   rateLimitMiddleware,
   spellRouter
+);
+app.use(
+  "/api/v1/house",
+  apiKeyAuthMiddleware,
+  rateLimitMiddleware,
+  HouseRouter
 );
 app.use("/api/v1/admin", adminRouter);
 

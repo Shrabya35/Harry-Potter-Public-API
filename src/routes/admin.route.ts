@@ -18,6 +18,12 @@ import {
   getSpellTypes,
 } from "../controllers/spell.controller";
 import { adminAuthMiddleware } from "../middleware/adminMiddleware";
+import {
+  createHouse,
+  deleteHouse,
+  editHouse,
+  getHouse,
+} from "../controllers/house.Controller";
 
 const router = Router();
 
@@ -35,5 +41,9 @@ router.post("/spell/create", adminAuthMiddleware, createSpell);
 router.post("/spell/edit/:id", adminAuthMiddleware, editSpell);
 router.delete("/spell/delete/:id", adminAuthMiddleware, deleteSpell);
 router.get("/spell/:id", adminAuthMiddleware, getSpellById);
+router.get("/house", adminAuthMiddleware, getHouse);
+router.post("/house/create", adminAuthMiddleware, createHouse);
+router.post("/house/edit/:id", adminAuthMiddleware, editHouse);
+router.delete("/house/delete/:id", adminAuthMiddleware, deleteHouse);
 
 export default router;

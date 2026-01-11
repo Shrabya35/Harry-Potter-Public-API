@@ -53,3 +53,11 @@ model SpellType {
   spells      Spell[]
   createdAt   DateTime @default(now())
 }
+
+model House {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  logo      String
+  creator   String
+  createdAt DateTime @default(now())
+}

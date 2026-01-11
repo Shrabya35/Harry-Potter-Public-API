@@ -115,7 +115,7 @@ export const editSpellType = async (req: Request, res: Response) => {
     if (!existingSpellType) {
       return res.status(404).json({
         success: false,
-        message: "Spell not found",
+        message: "Spell type not found",
       });
     }
 
@@ -160,7 +160,7 @@ export const deleteSpellType = async (req: Request, res: Response) => {
     if (!spellType) {
       return res.status(200).json({
         success: false,
-        message: "Spell not found",
+        message: "Spell type not found",
       });
     }
 
