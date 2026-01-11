@@ -2,6 +2,8 @@ import { Router } from "express";
 import {
   adminLoginController,
   createAdminController,
+  getUserDetail,
+  getUsers,
 } from "../controllers/admin.controller";
 import {
   createSpell,
@@ -21,6 +23,8 @@ const router = Router();
 
 router.post("/create", createAdminController);
 router.post("/login", adminLoginController);
+router.get("/get-users", adminAuthMiddleware, getUsers);
+router.get("/get-user/:id", adminAuthMiddleware, getUserDetail);
 router.get("/spell-type/", adminAuthMiddleware, getSpellTypes);
 router.post("/spell-type/create", adminAuthMiddleware, createSpellType);
 router.post("/spell-type/edit/:id", adminAuthMiddleware, editSpellType);
